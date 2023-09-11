@@ -1,0 +1,5 @@
+dotnet new sln --name MtecDevs
+
+dotnet new mvc -o MtecDevs -f net6.0 
+
+dotnet sln add MtecDevs\MtecDevs.csproj
