@@ -3,3 +3,16 @@ dotnet new sln --name MtecDevs
 dotnet new mvc -o MtecDevs -f net6.0 
 
 dotnet sln add MtecDevs\MtecDevs.csproj
+
+Criar a migração
+// Testar se tem a ferramenta migração
+dotnet ef
+
+// Instala no PC
+dotnet tool install --global dotnet-ef
+
+// Comandos para criar e aplicar as migrações
+dotnet ef migrations add criar-banco
+dotnet ef database update
+
+// Criar a classe para popular dados
