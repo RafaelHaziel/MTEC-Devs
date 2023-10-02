@@ -63,7 +63,7 @@ public class AppDbSeed
                 Email = "hazieldefato@gamil.com",
                 NormalizedEmail = "HAZIELDEFATO@GMAIL.COM",
                 UserName = "Haziel&Tito",
-                NormalizedUserName = "HAZIE&TITO",
+                NormalizedUserName = "HAZIEL&TITO",
                 LockoutEnabled = false,
                 PhoneNumber = "1",
                 PhoneNumberConfirmed = true,
@@ -77,6 +77,27 @@ public class AppDbSeed
         }
         // Adiciona a conta no banco
         builder.Entity<IdentityUser>().HasData(users);
+
+        //  Cria a conta pessoal do usuário
+        List<Usuario> usuarios = new() {
+            new Usuario() {
+                UserId = users[0].Id,
+                Nome = "Haziel e Tito",
+                DataNascimento = DateTime.Parse("01/01/1111"),
+                TipoDevId = 5,
+                Foto = "/img/usuarios/avatar.jpg"
+            }
+        };
+        builder.Entity<Usuario>().HasData(usuarios);
+
+        // Associar o usuário ao tipo de perfil
+        List<IdentityUserRole<string>> userRoles = new() {
+            new IdentityUserRole<string>() {
+                UserId = users[0].Id,
+                RoleId = roles[0].Id
+            }
+        };
+        builder.Entity<IdentityUserRole<string>>().HasData(userRoles);
         #endregion
     }
 }
