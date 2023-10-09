@@ -47,22 +47,22 @@ namespace MtecDevs.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "063758ad-444c-4f4b-8b57-f99534b7667d",
-                            ConcurrencyStamp = "3b787c36-5f4e-4a8b-a801-8d683c8bb066",
+                            Id = "51abc422-28ff-4ce2-ad13-f4b530676a75",
+                            ConcurrencyStamp = "110f6d00-1c2d-4a19-9444-e63ec50edba6",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "a9deb3d3-69ad-42f3-9737-3c6c75c28387",
-                            ConcurrencyStamp = "03d41ece-9895-476b-ad5e-8d4500d7b43f",
+                            Id = "7cc72789-90d9-44b3-ac9a-68a7a3487090",
+                            ConcurrencyStamp = "2224dc22-e40a-42a1-96c0-a857d6287496",
                             Name = "Moderador",
                             NormalizedName = "MODERADOR"
                         },
                         new
                         {
-                            Id = "8f480f57-c55d-4f6d-9311-b0b195183c88",
-                            ConcurrencyStamp = "ff139ec2-1d27-4b43-826b-b80004711330",
+                            Id = "0a6b9c98-8815-45d0-ad20-9f4367d635ab",
+                            ConcurrencyStamp = "821a402a-66b4-406b-b986-72c612baafec",
                             Name = "Usuário",
                             NormalizedName = "USUÁRIO"
                         });
@@ -157,18 +157,18 @@ namespace MtecDevs.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "011c31ef-7e4b-4b82-8689-7a4d76cc9ede",
+                            Id = "07136ba6-2db2-4584-8362-e4deb32ec013",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ec0cc852-4d11-4e93-b299-eacf77e5a85d",
+                            ConcurrencyStamp = "66069386-d17e-4891-8c3c-b2ca8dc31e9f",
                             Email = "hazieldefato@gamil.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "HAZIELDEFATO@GMAIL.COM",
                             NormalizedUserName = "HAZIEL&TITO",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPy5Zl23vcGVFMxuZidQF4E4Os/CjgHbw2ucZF64vvFJOncOcpGxVFb4Rn8QmsOiFw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDtRD0HLPkjmNNKDzs5MFjf34T0jUPXBLI4BdY7CXu4v7QoSpJTGEotydxf/7Gv7sA==",
                             PhoneNumber = "1",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "b4823ee6-a547-4af9-9991-2aaf6fef9871",
+                            SecurityStamp = "4b7e38d2-8d96-4f70-91d2-259cccf590e0",
                             TwoFactorEnabled = false,
                             UserName = "Haziel&Tito"
                         });
@@ -236,8 +236,8 @@ namespace MtecDevs.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "011c31ef-7e4b-4b82-8689-7a4d76cc9ede",
-                            RoleId = "063758ad-444c-4f4b-8b57-f99534b7667d"
+                            UserId = "07136ba6-2db2-4584-8362-e4deb32ec013",
+                            RoleId = "51abc422-28ff-4ce2-ad13-f4b530676a75"
                         });
                 });
 
@@ -331,7 +331,7 @@ namespace MtecDevs.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "011c31ef-7e4b-4b82-8689-7a4d76cc9ede",
+                            UserId = "07136ba6-2db2-4584-8362-e4deb32ec013",
                             DataNascimento = new DateTime(1111, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Foto = "/img/usuarios/avatar.jpg",
                             Nome = "Haziel e Tito",
