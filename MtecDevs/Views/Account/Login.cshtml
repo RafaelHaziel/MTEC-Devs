@@ -11,7 +11,7 @@
         </div>
         <input type="hidden" asp-for="UrlRetorno">
         <div asp-validation-summary="All" class="text-danger"></div>
-
+        
         <div class="mb-3">
             <label asp-for="Email" class="form-label"></label>
             <input asp-for="Email" class="form-control">
@@ -37,13 +37,13 @@
             <div class="line"></div>
             <h6>Novo por Aqui?</h6>
             <div class="line"></div>
-            </div>
+        </div>
 
-        <a asp-action="" class="w-100 btn btn-succes mt-1">Criar Conta</a>
+        <a asp-action="" class="w-100 btn btn-success mt-1">Criar Conta</a>
 
     </form>
 </main>
 
 @section Scripts {
-    <partial name="_ValidationScriptPartial"></partial>
+    <partial name="_ValidationScriptsPartial"></partial>
 }

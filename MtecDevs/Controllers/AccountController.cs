@@ -1,28 +1,27 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace MtecDevs.Controllers
+namespace MtecDevs.Controllers;
+
+[Route("[controller]")]
+public class AccountController : Controller
 {
-    [Route("[controller]")]
-    public class AccountController : Controller
+    private readonly ILogger<AccountController> _logger;
+
+    public AccountController(ILogger<AccountController> logger)
     {
-        private readonly ILogger<AccountController> _logger;
+        _logger = logger;
+    }
 
-        public AccountController(ILogger<AccountController> logger)
-        {
-            _logger = logger;
-        }
+    [HttpGet]
 
-        [HttpGet]
+    public IActionResult Login()
+    {
+        return View();
+    }
 
-        public IActionResult Login()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View("Error!");
-        }
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error()
+    {
+        return View("Error!");
     }
 }
