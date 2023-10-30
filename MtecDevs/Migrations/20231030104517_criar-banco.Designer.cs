@@ -11,7 +11,7 @@ using MtecDevs.Data;
 namespace MtecDevs.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231009102305_criar-banco")]
+    [Migration("20231030104517_criar-banco")]
     partial class criarbanco
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -49,22 +49,22 @@ namespace MtecDevs.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "51abc422-28ff-4ce2-ad13-f4b530676a75",
-                            ConcurrencyStamp = "110f6d00-1c2d-4a19-9444-e63ec50edba6",
+                            Id = "f4772286-1d7a-4827-806d-fc2763b4a5f8",
+                            ConcurrencyStamp = "a4928216-b30d-4b5c-ba36-9571f339627a",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "7cc72789-90d9-44b3-ac9a-68a7a3487090",
-                            ConcurrencyStamp = "2224dc22-e40a-42a1-96c0-a857d6287496",
+                            Id = "e036de65-792c-45dd-a1d0-6a406154fee7",
+                            ConcurrencyStamp = "3af77452-3b25-4525-a517-c7096ba6acbe",
                             Name = "Moderador",
                             NormalizedName = "MODERADOR"
                         },
                         new
                         {
-                            Id = "0a6b9c98-8815-45d0-ad20-9f4367d635ab",
-                            ConcurrencyStamp = "821a402a-66b4-406b-b986-72c612baafec",
+                            Id = "5e4e2473-32ac-4de0-be3c-763247dd2ad9",
+                            ConcurrencyStamp = "c7c1ad4f-89c3-4797-9a4f-87490f026190",
                             Name = "Usuário",
                             NormalizedName = "USUÁRIO"
                         });
@@ -159,18 +159,18 @@ namespace MtecDevs.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "07136ba6-2db2-4584-8362-e4deb32ec013",
+                            Id = "25f8e2fd-5be1-4906-b78d-4e8553e2e286",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "66069386-d17e-4891-8c3c-b2ca8dc31e9f",
+                            ConcurrencyStamp = "62ff1c09-1190-4c29-9fb6-5332fea076f5",
                             Email = "hazieldefato@gamil.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "HAZIELDEFATO@GMAIL.COM",
                             NormalizedUserName = "HAZIEL&TITO",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDtRD0HLPkjmNNKDzs5MFjf34T0jUPXBLI4BdY7CXu4v7QoSpJTGEotydxf/7Gv7sA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBEXzkP/rA1dGpcEuGD7wBteBvA7HcSRrJltAM/6grEpu1MiWf7JMLRREJ7GaaH7Mw==",
                             PhoneNumber = "1",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "4b7e38d2-8d96-4f70-91d2-259cccf590e0",
+                            SecurityStamp = "cbbab4fc-b590-4751-81ad-83811c48d96a",
                             TwoFactorEnabled = false,
                             UserName = "Haziel&Tito"
                         });
@@ -238,8 +238,8 @@ namespace MtecDevs.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "07136ba6-2db2-4584-8362-e4deb32ec013",
-                            RoleId = "51abc422-28ff-4ce2-ad13-f4b530676a75"
+                            UserId = "25f8e2fd-5be1-4906-b78d-4e8553e2e286",
+                            RoleId = "f4772286-1d7a-4827-806d-fc2763b4a5f8"
                         });
                 });
 
@@ -333,7 +333,7 @@ namespace MtecDevs.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "07136ba6-2db2-4584-8362-e4deb32ec013",
+                            UserId = "25f8e2fd-5be1-4906-b78d-4e8553e2e286",
                             DataNascimento = new DateTime(1111, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Foto = "/img/usuarios/avatar.jpg",
                             Nome = "Haziel e Tito",

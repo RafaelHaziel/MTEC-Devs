@@ -60,7 +60,7 @@ public class AppDbSeed
         List<IdentityUser> users = new(){
             new IdentityUser() {
                 Id = Guid.NewGuid().ToString(),
-                Email = "hazieldefato@gamil.com",
+                Email = "hazieldefato@gmail.com",
                 NormalizedEmail = "HAZIELDEFATO@GMAIL.COM",
                 UserName = "Haziel&Tito",
                 NormalizedUserName = "HAZIEL&TITO",
