@@ -13,7 +13,7 @@ public class AppDbSeed
             new TipoDev() {
                 Id = 1,
                 Nome = "FullStack"
-            },
+            }, 
             new TipoDev() {
                 Id = 2,
                 Nome = "FrontEnd"
@@ -39,17 +39,17 @@ public class AppDbSeed
             new IdentityRole() {
                 Id = Guid.NewGuid().ToString(),
                 Name = "Administrador",
-                NormalizedName = "ADMINISTRADOR" 
+                NormalizedName = "ADMINISTRADOR"
             },
             new IdentityRole() {
                 Id = Guid.NewGuid().ToString(),
                 Name = "Moderador",
-                NormalizedName = "MODERADOR" 
+                NormalizedName = "MODERADOR"
             },
             new IdentityRole() {
                 Id = Guid.NewGuid().ToString(),
                 Name = "Usuário",
-                NormalizedName = "USUÁRIO" 
+                NormalizedName = "USUÁRIO"
             }
         };
         builder.Entity<IdentityRole>().HasData(roles);
@@ -57,7 +57,7 @@ public class AppDbSeed
 
         #region Popular dos dados Usuários
         // Cria a lista de contas
-        List<IdentityUser> users = new(){
+        List<IdentityUser> users = new() {
             new IdentityUser() {
                 Id = Guid.NewGuid().ToString(),
                 Email = "hazieldefato@gmail.com",
@@ -70,7 +70,7 @@ public class AppDbSeed
                 EmailConfirmed = true
             }
         };
-        //Criptografas as senhas
+        // Criptografar as senhas
         foreach (var user in users) {
             PasswordHasher<IdentityUser> pass = new();
             user.PasswordHash = pass.HashPassword(user, "@Etec123");
@@ -78,14 +78,14 @@ public class AppDbSeed
         // Adiciona a conta no banco
         builder.Entity<IdentityUser>().HasData(users);
 
-        //  Cria a conta pessoal do usuário
+        // Cria a conta pessoal do usuário
         List<Usuario> usuarios = new() {
             new Usuario() {
                 UserId = users[0].Id,
-                Nome = "Haziel e Tito",
-                DataNascimento = DateTime.Parse("01/01/1111"),
-                TipoDevId = 5,
-                Foto = "/img/usuarios/avatar.jpg"
+                Nome = "José Antonio Gallo Junior",
+                DataNascimento = DateTime.Parse("05/08/1981"),
+                TipoDevId = 1,
+                Foto = "/img/usuarios/avatar.png"
             }
         };
         builder.Entity<Usuario>().HasData(usuarios);
@@ -99,5 +99,6 @@ public class AppDbSeed
         };
         builder.Entity<IdentityUserRole<string>>().HasData(userRoles);
         #endregion
+
     }
 }

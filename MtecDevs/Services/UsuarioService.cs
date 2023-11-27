@@ -2,7 +2,6 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MtecDevs.Data;
-using MtecDevs.Services.Interfaces;
 using MtecDevs.ViewModels;
 
 namespace MtecDevs.Services;

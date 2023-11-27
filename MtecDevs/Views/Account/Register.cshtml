@@ -1,17 +1,23 @@
-@model MtecDevs.ViewModels.LoginVM
+@model MtecDevs.ViewModels.RegisterVM
 @{
-    ViewData["Title"] = "Login";
+    ViewData["Title"] = "Register";
     Layout = "~/Views/Shared/_LayoutAccount.cshtml";
 }
 
 <main class="container-fluid p-4">
-    <form method="post" asp-action="Login" asp-controller="Account">
+    <form method="post" asp-action="Register" asp-controller="Account">
         <div class="text-center mb-4">
             <img src="~/img/logo2.png" alt="Logo" width="350">
         </div>
         <input type="hidden" asp-for="UrlRetorno">
         <div asp-validation-summary="ModelOnly" class="text-danger" hidden></div>
 
+        <div class="mb-3">
+            <label asp-for="Nome" class="form-label"></label>
+            <input asp-for="Nome" class="form-control">
+            <span asp-validation-for="Nome" class="text-danger"></span>
+        </div>
+        
         <div class="mb-3">
             <label asp-for="Email" class="form-label"></label>
             <input asp-for="Email" class="form-control">
@@ -24,23 +30,40 @@
             <span asp-validation-for="Senha" class="text-danger"></span>
         </div>
 
+        <div class="mb-3">
+            <label asp-for="DataNascimento" class="form-label"></label>
+            <input asp-for="DataNascimento" class="form-control">
+            <span asp-validation-for="DataNascimento" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="TipoDevId" class="form-label"></label>
+            <input asp-for="TipoDevId" class="form-control">
+            <span asp-validation-for="TipoDevId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Foto" class="form-label"></label>
+            <input asp-for="Foto" class="form-control">
+            <span asp-validation-for="Foto" class="text-danger"></span>
+        </div>
+
         <div class="mb-3 form-check">
             <input type="checkbox" asp-for="Lembrar" class="form-check-input">
             <label asp-for="Lembrar" class="form-check-label"></label>
         </div>
 
-        <button type="submit" class="w-100 btn btn-primary">Entrar</button>
+        <button type="submit" class="w-100 btn btn-primary">Criar Conta</button>
 
         <a asp-action="" class="d-block text-center mt-3 text-decoration-none">Esqueceu sua Senha?</a>
 
         <div class="separator">
             <div class="line"></div>
-            <h6>Novo por Aqui?</h6>
+            <h6>Já possui uma conta? Conecte-se</h6>
             <div class="line"></div>
         </div>
 
-        <a asp-action="Register" asp-controller="Account" class="w-100 btn btn-success mt-1">Criar Conta</a>
-
+        <a asp-action="Login" asp-controller="Account" class="w-100 btn btn-success mt-1">Entrar</a>
 
     </form>
 </main>
@@ -49,7 +72,7 @@
     <partial name="_ValidationScriptsPartial"></partial>
     <script>
         let mensagemErro = '';
-        $('.validation-summary-errors ul li').each(function () {
+        $('.validation-summary-errors ul li').each(function() {
             mensagemErro += $(this).text();
         });
         if (mensagemErro != '') {

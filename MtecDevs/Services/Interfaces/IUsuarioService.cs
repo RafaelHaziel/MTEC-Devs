@@ -1,6 +1,6 @@
 using MtecDevs.ViewModels;
 
-namespace MtecDevs.Services.Interfaces;
+namespace MtecDevs.Services;
 
 public interface IUsuarioService
 {

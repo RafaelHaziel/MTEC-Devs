@@ -1,19 +1,21 @@
-using Microsoft.AspNetCore.Mvc;
-using MtecDevs.ViewModels;
-using Microsoft.AspNetCore.Identity;
 using System.Net.Mail;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using MtecDevs.ViewModels;
 
 namespace MtecDevs.Controllers;
 
-[Route("[controller]")]
 public class AccountController : Controller
 {
     private readonly ILogger<AccountController> _logger;
     private readonly SignInManager<IdentityUser> _signInManager;
     private readonly UserManager<IdentityUser> _userManager;
 
-    public AccountController(ILogger<AccountController> logger, SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
+    public AccountController(
+        ILogger<AccountController> logger,
+        SignInManager<IdentityUser> signInManager,
+        UserManager<IdentityUser> userManager)
     {
         _logger = logger;
         _signInManager = signInManager;
@@ -21,7 +23,6 @@ public class AccountController : Controller
     }
 
     [HttpGet]
-
     public IActionResult Login(string ReturnUrl)
     {
         LoginVM login = new(){
@@ -39,15 +40,17 @@ public class AccountController : Controller
             // Verifica o Login
             string userName = login.Email;
             // Verificando se o login é por email
-            if (IsValidEmail(userName))
+            if (IsValidEmail(login.Email))
             {
                 var user = await _userManager.FindByEmailAsync(login.Email);
                 if (user != null)
                     userName = user.UserName;
             }
             // Login é só por UserName
-            var result = await _signInManager.PasswordSignInAsync(userName, login.Senha, login.Lembrar, lockoutOnFailure: true);
-
+            var result = await _signInManager.PasswordSignInAsync(
+                userName, login.Senha, login.Lembrar, lockoutOnFailure: true
+            );
+            
             if (result.Succeeded)
             {
                 _logger.LogInformation($"Usuário {login.Email} acessou o sistema");
@@ -58,9 +61,54 @@ public class AccountController : Controller
                 _logger.LogWarning($"Usuário {login.Email} está bloqueado");
                 return RedirectToAction("Lockout");
             }
-            ModelState.AddModelError(string.Empty, "Usuário e/ou Senha Inválidos!");
+            ModelState.AddModelError(string.Empty, "Usuário e/ou Senha Inválidos!!");
         }
         return View(login);
+    }
+
+    [HttpGet]
+    public IActionResult Register()
+    {
+        RegisterVM register = new RegisterVM();
+        return View(register);
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Register(RegisterVM register)
+    {
+        if (ModelState.IsValid)
+        {
+             // Verificar se o e-mail é válido
+            if (!IsValidEmail(register.Email))
+            {
+                ModelState.AddModelError(string.Empty, "E-mail inválido");
+                return View(register);
+            }
+
+            // Processar o registro
+            var user = new IdentityUser { UserName = register.Email, Email = register.Email };
+            var result = await _userManager.CreateAsync(user, register.Senha);
+
+            if (result.Succeeded)
+            {
+                // Logar o usuário após o registro
+                await _signInManager.SignInAsync(user, isPersistent: false);
+
+                _logger.LogInformation($"Usuário {register.Email} registrado com sucesso");
+
+                // Redirecionar para a página de perfil, por exemplo
+                return RedirectToAction("Index", "Home");
+            }
+
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+        }
+
+        // Se o modelo não for válido ou o registro falhar, retorne à página de registro com os erros
+        return View(register);
     }
 
     [HttpPost]
@@ -84,4 +132,5 @@ public class AccountController : Controller
             return false;
         }
     }
+
 }
